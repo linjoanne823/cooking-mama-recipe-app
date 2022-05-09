@@ -1,0 +1,9 @@
+.header__user-icon {
+  position: absolute;
+  width: 2rem;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.6;
+}/*# sourceMappingURL=Header.css.map */
