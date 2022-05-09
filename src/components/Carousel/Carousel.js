@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Carousel/Carousel.css";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
 const sliderImages = [
   {
     title: "first image",
@@ -37,7 +37,7 @@ const Carousel = () => {
   useInterval(goToNextImage);
   return (
     <div className ="carousel">
-      <Header/>
+      {/* <Header/> */}
       <img src={sliderImages[currentImage].urls} className ="carousel__image"/>
     </div>
   );

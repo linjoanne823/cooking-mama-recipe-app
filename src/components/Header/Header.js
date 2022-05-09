@@ -13,7 +13,7 @@ const Header = () => {
         onClick={() => setShow(true)}
       />
 
-      <Modal show={show} onClose={()=>setShow(false)}/>
+      <Modal show={show} onClose={()=>setShow(false)} />
     </div>
   );
 };
