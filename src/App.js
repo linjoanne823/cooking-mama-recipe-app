@@ -1,14 +1,18 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Carousel from "./components/Carousel/Carousel";
-import "../src/App.css"
+import HomePage from "./pages/HomePage";
+import "../src/App.css";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-
-        <Carousel />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     );
   }
