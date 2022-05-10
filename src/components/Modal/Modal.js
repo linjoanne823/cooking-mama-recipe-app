@@ -12,7 +12,7 @@ const Modal = (props) => {
         <ul className="modal__list">
           <li className="modal__list-item">Sign In / Log Out</li>
           <li className="modal__list-item"><Link to ="/signup">Sign Up</Link></li>
-          <li className="modal__list-item">Test User</li>
+          <li className="modal__list-item"><Link to ="/recipes">Test User</Link></li>
         </ul>
       </div>
     </div>

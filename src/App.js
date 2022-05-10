@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage";
 import "../src/App.css";
 import SignUpPage from "./pages/SignUpPage";
+import RecipesPage from "./pages/RecipesPage";
 
 class App extends React.Component {
     
@@ -14,6 +15,7 @@ class App extends React.Component {
           <Routes>
             <Route path="/" exact element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage/>}/>
+            <Route path ="/recipes" element={<RecipesPage/>}/>
           </Routes>
         </BrowserRouter>
       </div>
