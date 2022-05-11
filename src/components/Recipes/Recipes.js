@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Recipes.css";
-import RecipeSummary from "./RecipeSummary";
-import likeButton from "../../assets/images/heart-992.svg";
 import ToggleLikeButton from "./ToggleLikeButton";
+import ReadMore from "./ReadMore";
 
 const Recipes = (props) => {
   return (
     <div>
       {props.recipes.map((recipe) => (
         <div key={recipe.id} className="recipe">
-            <ToggleLikeButton/>
+          <ToggleLikeButton />
           <img src={recipe.image} className="recipe__image"></img>
           <div className="recipe__text-wrapper">
             <div className="recipe__title">{recipe.title}</div>
@@ -19,10 +18,11 @@ const Recipes = (props) => {
             <div className="recipe__time">
               Ready in {recipe.readyInMinutes} minutes
             </div>
+            <ReadMore>
+              <div className="recipe__summary">{recipe.summary}</div>
+            </ReadMore>
 
-            <button className ="recipe__button"><a href={recipe.sourceUrl}className="recipe__link" >
-              More
-            </a></button>
+           
           </div>
         </div>
       ))}

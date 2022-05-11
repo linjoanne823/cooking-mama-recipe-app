@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Recipes from "../components/Recipes/Recipes";
-import RecipeSummary from "../components/Recipes/RecipeSummary";
 const recipesArray = [
   {
     id: 716429,
@@ -42,33 +41,46 @@ const recipeSummaryArray = [
     id: 716429,
     title: "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
     summary:
-      'You can never have too many main course recipes, so give Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs a try.',
+      "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs requires about 45 minutes from start to finish. This recipe makes 2 servings with 585 calories, 19g of protein, and 20g of fat each. For $1.63 per serving, this recipe covers 23% of your daily requirements of vitamins and minerals. If you have butter, cauliflower florets, extra virgin olive oil, and a few other ingredients on hand, you can make it. 209 people have made this recipe and would make it again. It works well as a main course. It is brought to you by fullbellysisters.blogspot.com. With a spoonacular score of 83%, this dish is excellent.",
   },
   {
     id: 634873,
     title: "Best Baked Macaroni and Cheese",
     summary:
-      'Forget going out to eat or ordering takeout every time you crave American food. Try making Best Baked Macaroni and Cheese at home.',
+      "You can never have too many American recipes, so give Best Baked Macaroni and Cheese a try. This recipe makes 12 servings with 579 calories, 26g of protein, and 33g of fat each. For $1.76 per serving, this recipe covers 19% of your daily requirements of vitamins and minerals. A couple people made this recipe, and 80 would say it hit the spot. It works best as a main course, and is done in roughly 45 minutes. It is brought to you by Foodista. Head to the store and pick up kosher salt, white cheddar cheese, elbow macaroni, and a few other things to make it today.",
   },
   {
     id: 660382,
     title: "Smoked Salmon Pasta",
-    summary:
-      'Smoked Salmon Pastan is a main course that serves 4.',
+    summary: "Smoked Salmon Pastan is a main course that serves 4.",
   },
 ];
 
+const mergeArrays = (recipesArray = [], recipeSummaryArray = []) => {
+  let result = [];
+  result = recipesArray.map((object) => {
+    const index = recipeSummaryArray.findIndex(
+      (el) => el["id"] === object["id"]
+    );
+    const { summary } = index !== -1 ? recipeSummaryArray[index] : {};
+    return {
+      ...object,
+      summary,
+    };
+  });
+  return result;
+};
+
 const RecipesPage = () => {
-  const [recipes, setRecipes] = useState(recipesArray);
-  const [recipeSummary, setRecipeSummary] = useState(recipeSummaryArray)
+  console.log(mergeArrays(recipesArray, recipeSummaryArray));
+  const [recipes, setRecipes] = useState(
+    mergeArrays(recipesArray, recipeSummaryArray)
+  );
 
   return (
-    <div className ="recipe-page">
+    <div className="recipe-page">
       <h1>Recipe Feed</h1>
       <Recipes recipes={recipes} />
-      <RecipeSummary recipeSummary={recipeSummary} className ="recipe-page__summary"/>
-     
-
     </div>
   );
 };

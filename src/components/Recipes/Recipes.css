@@ -21,6 +21,9 @@
 .recipe__text-wrapper {
   padding: 1rem;
 }
+.recipe__summary {
+  height: 20rem;
+}
 .recipe__button {
   font-size: 1rem;
   background-color: transparent;
