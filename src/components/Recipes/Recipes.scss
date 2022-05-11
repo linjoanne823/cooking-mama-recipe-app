@@ -1,8 +1,7 @@
 .recipe {
   display: flex;
-  flex-direction: row;
-  padding: 1rem 0;
-  width: 80%;
+  flex-direction: column;
+  margin:1rem;
 
   &__like-button {
     width: 3rem;

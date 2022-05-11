@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Recipes from "../components/Recipes/Recipes";
+import './RecipesPage.css';
 
 const RecipesPage = () => {
   const [query, setQuery] = useState("");
@@ -8,11 +9,11 @@ const RecipesPage = () => {
 
   const API_KEY = "4c58e90e3834404faa86be96b25aedc0";
 
-  const url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${API_KEY}`;
+  const urlForQuery = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${API_KEY}`;
 
-  const getRecipes = async () => {
+  const getRecipesByQuery = async () => {
     try {
-      const result = await axios.get(url);
+      const result = await axios.get(urlForQuery);
       setRecipes(result.data.results);
       console.log(result.data.results);
     } catch (error) {
@@ -20,30 +21,26 @@ const RecipesPage = () => {
     }
   };
 
-  const onSubmit = (e) => {
+  const onSubmitQuery = (e) => {
     e.preventDefault();
-    getRecipes();
+    getRecipesByQuery();
   };
 
   return (
     <div className="recipe-page">
       <h1>Recipe Feed</h1>
-      <form onSubmit={onSubmit}>
-        <input
+      <form onSubmit={onSubmitQuery} className="recipe-page__form">
+        <input className="recipe-page__input-field"
           type="text"
           placeholder="enter name of dish"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         ></input>
-        <input type="submit" value="Search"></input>
-        {/* <select className="recipe-page__diet">
-          <option onClick={() => setDiet('ketogenic')}>Ketogenic</option>
-          <option onClick={() => setDiet('vegetarian')}>Vegetarian</option>
-          <option onClick={() => setDiet('vegan')}>Vegan</option>
-        </select> */}
+        <input type="submit" value="Search" className="recipe-page__submit"></input>
+    
       </form>
       <div>
-        <Recipes recipes={recipes} />
+        <Recipes recipes={recipes}/>
       </div>
     </div>
   );

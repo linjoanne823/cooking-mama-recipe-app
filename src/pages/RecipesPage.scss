@@ -1,0 +1,18 @@
+.recipe-page {
+  &__form {
+    margin-top: 1rem;
+  }
+  &__input-field {
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  &__submit {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: lightskyblue;
+    color: white;
+  }
+}
