@@ -16,6 +16,7 @@ const Recipes = (props) => {
           <div className="recipe__text-wrapper">
             <div className="recipe__title">{recipe.title}</div>
          
+
           </div>
         </div>
       ))}

@@ -4,12 +4,11 @@ import Recipes from "../components/Recipes/Recipes";
 import './RecipesPage.css';
 
 const RecipesPage = () => {
-  const [query, setQuery] = useState("");
+  const [cuisine, setCuisine] = useState("japanese");
   const [recipes, setRecipes] = useState([]);
 
-  const API_KEY = "4c58e90e3834404faa86be96b25aedc0";
 
-  const urlForQuery = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${API_KEY}`;
+  const urlForQuery = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=${process.env.REACT_APP_API_KEY}`;
 
   const getRecipesByQuery = async () => {
     try {
@@ -28,19 +27,27 @@ const RecipesPage = () => {
 
   return (
     <div className="recipe-page">
-      <h1>Recipe Feed</h1>
+      <h1 className ="recipe-page__title">Recipe Feed</h1>
       <form onSubmit={onSubmitQuery} className="recipe-page__form">
-        <input className="recipe-page__input-field"
+        <select className ="recipe-page__input-field" onChange={(e) => setCuisine(e.target.value)}>
+          <option value="japanese">Japanese</option>
+          <option value="korean">Korean</option>
+          <option value="chinese">Chinese</option>
+          <option value="american">American</option>
+          <option value="italian">Italian</option>
+
+        </select>
+        {/* <input className="recipe-page__input-field"
           type="text"
-          placeholder="enter name of dish"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        ></input>
+          value={cuisine}
+          onChange={(e) => setCuisine(e.target.value)}
+        ></input> */}
         <input type="submit" value="Search" className="recipe-page__submit"></input>
     
       </form>
       <div>
         <Recipes recipes={recipes}/>
+      
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 .recipe-page__form {
   margin-top: 1rem;
 }
+.recipe-page__title {
+  text-align: center;
+}
 .recipe-page__input-field {
   padding: 1rem 2rem;
   border-radius: 2rem;
