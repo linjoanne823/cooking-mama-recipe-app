@@ -2,14 +2,8 @@
   &__form {
     margin-top: 1rem;
   }
-  &__title{
-    text-align:center;
-  }
-  &__input-field {
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    font-size: 1rem;
-    margin: 1rem;
+  &__title {
+    text-align: center;
   }
 
   &__submit {
@@ -18,4 +12,12 @@
     background-color: lightskyblue;
     color: white;
   }
+}
+
+.custom-select {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  margin: 1rem;
+  position: relative;
 }
