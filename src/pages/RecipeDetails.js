@@ -10,24 +10,30 @@ const RecipeDetails = () => {
   const [activeTab, setActiveTab] = useState("ingredients");
 
   const fetchDetails = async () => {
-    const data = await axios.get(
-      `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
-    );
-    setDetails(data);
-    console.log(data);
+    try {
+      const data = await axios.get(
+        `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+      );
+      setDetails(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     fetchDetails();
   }, [params.id]);
 
-  return (
+  return Object.keys(details).length > 0 ? (
     <div>
-      {/* <h2>{details.data.title}</h2>
+      <h2>{details.data.title}</h2>
       <img src={details.data.image}></img>
       <p dangerouslySetInnerHTML={{ __html: details.data.instructions }}></p>
-      <button>Save to Favourite</button> */}
+      <button>Save to Favourite</button>
     </div>
+  ) : (
+    <p>loading</p>
   );
 };
 

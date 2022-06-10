@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Recipes from "../components/Recipes/Recipes";
 import "./RecipesPage.scss";
 
 const RecipesPage = (props) => {
-  const [cuisine, setCuisine] = useState("japanese");
+  const [cuisine, setCuisine] = useState("jewish");
   const [recipes, setRecipes] = useState([]);
+  //call in useEffect
 
   const urlForQuery = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&apiKey=${process.env.REACT_APP_API_KEY}`;
   const getRecipesByQuery = async () => {
@@ -17,6 +18,10 @@ const RecipesPage = (props) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    getRecipesByQuery();
+  }, [cuisine]);
 
   const onSubmitQuery = (e) => {
     e.preventDefault();
@@ -31,7 +36,7 @@ const RecipesPage = (props) => {
           className="custom-select"
           onChange={(e) => setCuisine(e.target.value)}
         >
-          <option value="japanese">Japanese</option>
+          <option value="jewish">Jewish</option>
           <option value="korean">Korean</option>
           <option value="chinese">Chinese</option>
           <option value="american">American</option>
