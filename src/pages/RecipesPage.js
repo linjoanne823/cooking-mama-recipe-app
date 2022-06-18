@@ -31,7 +31,9 @@ const RecipesPage = (props) => {
 
   return (
     <div className="recipe-page">
-      <Link to={"/"}>Back to Home</Link>
+      <Link to={"/"} className="recipe-page__button">
+        Back to Home
+      </Link>
       <h1 className="recipe-page__title">Recipe Feed</h1>
       <form onSubmit={onSubmitQuery} className="recipe-page__form">
         <select

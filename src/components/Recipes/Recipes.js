@@ -6,9 +6,9 @@ import ToggleLikeButton from "./ToggleLikeButton";
 
 const Recipes = (props) => {
   return (
-    <div>
+    <div className="recipe">
       {props.recipes.map((recipe) => (
-        <div key={recipe.id} className="recipe">
+        <div key={recipe.id} className="recipe__container">
           <ToggleLikeButton />
           <Link to={`/recipes/${recipe.id}`} className="recipe__link">
             <img
@@ -19,6 +19,7 @@ const Recipes = (props) => {
               <div className="recipe__title">{recipe.title}</div>
             </div>
           </Link>
+          <div className="recipe__container"></div>
         </div>
       ))}
     </div>

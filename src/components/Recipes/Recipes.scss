@@ -1,7 +1,12 @@
 .recipe {
   display: flex;
-  flex-direction: column;
-  margin: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
 
   &__like-button {
     width: 3rem;
@@ -22,6 +27,7 @@
 
   &__text-wrapper {
     padding: 1rem;
+    width: 20vw;
   }
 
   &__summary {
@@ -40,6 +46,6 @@
     color: black;
     border: 1px solid gray;
     border-radius: 2rem;
-    width: 39vw;
+    width: fit-content;
   }
 }
