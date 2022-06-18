@@ -9,9 +9,9 @@ const Recipes = (props) => {
   return (
     <div>
       {props.recipes.map((recipe) => (
-        <Link to={`/recipes/${recipe.id}`}>
-          <div key={recipe.id} className="recipe">
-            <ToggleLikeButton />
+        <div key={recipe.id} className="recipe">
+          <ToggleLikeButton />
+          <Link to={`/recipes/${recipe.id}`}>
             <img
               src={`https://spoonacular.com/recipeImages/${recipe.id}-312x231.jpg`}
               className="recipe__image"
@@ -19,8 +19,8 @@ const Recipes = (props) => {
             <div className="recipe__text-wrapper">
               <div className="recipe__title">{recipe.title}</div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );

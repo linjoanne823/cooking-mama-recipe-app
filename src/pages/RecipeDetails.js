@@ -1,13 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, Info } from "react";
+import "./RecipeDetails.scss";
 
 const RecipeDetails = () => {
   let params = useParams();
   const [details, setDetails] = useState({});
-  const [activeTab, setActiveTab] = useState("ingredients");
 
   const fetchDetails = async () => {
     try {
@@ -25,12 +24,19 @@ const RecipeDetails = () => {
     fetchDetails();
   }, [params.id]);
 
+  const navigate = useNavigate();
+
   return Object.keys(details).length > 0 ? (
-    <div>
-      <h2>{details.data.title}</h2>
-      <img src={details.data.image}></img>
-      <p dangerouslySetInnerHTML={{ __html: details.data.instructions }}></p>
-      <button>Save to Favourite</button>
+    <div className="recipe-details">
+      <h2 className="recipe-details__title">{details.data.title}</h2>
+      <img src={details.data.image} className="recipe-details__image"></img>
+      <p
+        dangerouslySetInnerHTML={{ __html: details.data.instructions }}
+        className="recipe-details__text"
+      ></p>
+      <button onClick={() => navigate(-1)} className="recipe-details__button">
+        Back to List
+      </button>
     </div>
   ) : (
     <p>loading</p>

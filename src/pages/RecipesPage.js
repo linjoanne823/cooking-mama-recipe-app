@@ -42,11 +42,6 @@ const RecipesPage = (props) => {
           <option value="american">American</option>
           <option value="italian">Italian</option>
         </select>
-        {/* <input className="recipe-page__input-field"
-          type="text"
-          value={cuisine}
-          onChange={(e) => setCuisine(e.target.value)}
-        ></input> */}
         <input
           type="submit"
           value="Search"
