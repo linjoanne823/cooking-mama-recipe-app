@@ -1,22 +1,29 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import "../Modal/Modal.css";
+import { Link } from "react-router-dom";
+import Modal from "react-modal";
+import "./Modal.scss";
 
-const Modal = (props) => {
-  if (!props.show) {
-    return null;
-  }
+const userModal = (props) => {
   return (
-    <div className="modal" onClick={props.onClose}>
-      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-        <ul className="modal__list">
-          <li className="modal__list-item">Sign In / Log Out</li>
-          <li className="modal__list-item"><Link to ="/signup">Sign Up</Link></li>
-          <li className="modal__list-item"><Link to ="/recipes">Test User</Link></li>
-        </ul>
-      </div>
+    <div>
+      <Modal isOpen={true} className="modal">
+        <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+          <ul className="modal__list">
+            <li className="modal__list-item">
+              <Link to="/recipes" className="modal__link">
+                Test User
+              </Link>
+            </li>
+          </ul>
+          <button
+            onClick={() => props.closeModal(false)}
+            className="modal__button"
+          >
+            Back
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };
-
-export default Modal;
+export default userModal;

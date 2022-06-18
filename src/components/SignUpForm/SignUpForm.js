@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Modal/Modal.css"
+import "../Modal/Modal.css";
 
 const SignUpForm = (props) => {
   const [name, setName] = useState("");
@@ -10,11 +10,10 @@ const SignUpForm = (props) => {
   };
   return (
     <div className="modal">
-      <form onSubmit={handleSubmit} className="modal__content" >
+      <form onSubmit={handleSubmit} className="modal__content">
         <label className="modal__list">
           Your Name:
           <input
-        
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -29,7 +28,11 @@ const SignUpForm = (props) => {
           />
         </label>
 
-        <input type="submit" className="modal__button"/>
+        <input
+          type="submit"
+          className="modal__button"
+          onClick={() => props.closeModal(false)}
+        />
       </form>
     </div>
   );

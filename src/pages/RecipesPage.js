@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Recipes from "../components/Recipes/Recipes";
+import { Link } from "react-router-dom";
 import "./RecipesPage.scss";
 
 const RecipesPage = (props) => {
@@ -30,6 +31,7 @@ const RecipesPage = (props) => {
 
   return (
     <div className="recipe-page">
+      <Link to={"/"}>Back to Home</Link>
       <h1 className="recipe-page__title">Recipe Feed</h1>
       <form onSubmit={onSubmitQuery} className="recipe-page__form">
         <select

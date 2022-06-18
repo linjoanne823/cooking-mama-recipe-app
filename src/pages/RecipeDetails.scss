@@ -7,4 +7,11 @@
   &__text {
     width: 60vw;
   }
+
+  &__button {
+    background-color: white;
+    opacity: 0.6;
+    border: 1px solid gray;
+    border-radius: 1.2rem;
+  }
 }

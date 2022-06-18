@@ -11,25 +11,33 @@
 
   &__content {
     width: 40vw;
-    padding:2rem;
+    padding: 2rem;
     background-color: white;
     opacity: 0.6;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
 
   &__list {
     margin-left: -3rem;
     list-style: none;
-    
   }
 
   &__list-item {
     padding: 0.5rem;
   }
 
-  
+  &__link {
+    text-decoration: none;
+    color: gray;
+  }
+
+  &__button {
+    background-color: white;
+    opacity: 0.6;
+    border: 1px solid gray;
+    border-radius: 1.2rem;
+  }
 }

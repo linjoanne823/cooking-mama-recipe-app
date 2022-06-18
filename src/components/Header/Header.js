@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import userIcon from "../../assets/images/profile.icon.png";
-import "./Header.css";
+import "./Header.scss";
 import Modal from "../Modal/Modal";
 
 const Header = () => {
@@ -12,8 +12,7 @@ const Header = () => {
         className="header__user-icon"
         onClick={() => setShow(true)}
       />
-
-      <Modal show={show} onClose={()=>setShow(false)} />
+      {show && <Modal closeModal={setShow} />}
     </div>
   );
 };

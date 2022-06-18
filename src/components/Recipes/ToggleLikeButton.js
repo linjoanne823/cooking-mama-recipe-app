@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import likeButton from "../../assets/images/heart-992.svg";
 import whiteLikeButton from "../../assets/images/heart-917.svg";
-import './ToggleLikeButton.css';
+import "./ToggleLikeButton.scss";
 
 const ToggleLikeButton = () => {
   const [toggled, setToggled] = useState(true);

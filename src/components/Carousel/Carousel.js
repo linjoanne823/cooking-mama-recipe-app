@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Carousel/Carousel.css";
-// import Header from "../Header/Header";
+import "../Carousel/Carousel.scss";
 const sliderImages = [
   {
     title: "first image",
@@ -25,20 +24,18 @@ const Carousel = () => {
     );
   };
 
- 
   const useInterval = (goToNextImage) => {
     useEffect(() => {
       const autoloop = setInterval(() => {
-          goToNextImage();
+        goToNextImage();
       }, 3000);
       return () => clearInterval(autoloop);
     });
   };
   useInterval(goToNextImage);
   return (
-    <div className ="carousel">
-      {/* <Header/> */}
-      <img src={sliderImages[currentImage].urls} className ="carousel__image"/>
+    <div className="carousel">
+      <img src={sliderImages[currentImage].urls} className="carousel__image" />
     </div>
   );
 };

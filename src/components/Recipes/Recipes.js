@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Recipes.css";
+import "./Recipes.scss";
 import ToggleLikeButton from "./ToggleLikeButton";
-import ReadMore from "./ReadMore";
 
 const Recipes = (props) => {
   return (
@@ -11,7 +10,7 @@ const Recipes = (props) => {
       {props.recipes.map((recipe) => (
         <div key={recipe.id} className="recipe">
           <ToggleLikeButton />
-          <Link to={`/recipes/${recipe.id}`}>
+          <Link to={`/recipes/${recipe.id}`} className="recipe__link">
             <img
               src={`https://spoonacular.com/recipeImages/${recipe.id}-312x231.jpg`}
               className="recipe__image"
